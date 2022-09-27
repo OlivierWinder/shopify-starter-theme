@@ -1,0 +1,75 @@
+@use '../utils' as u;
+
+.hero{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    // flex-direction: column;
+
+    .hero__img{
+
+        object-fit: cover;
+        object-position: center;
+        height: 100%;
+        width: 100%;
+
+    }
+
+    .gradient-overlay{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0),rgba(0,0,0,0), rgba(0, 0, 0, 0));
+    }
+
+    .hero__text-container{
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        // background-color: red;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 500px;
+        color: white;
+
+        &--top-left{
+            top: 20%;
+            left: 10%;
+            transform: unset;
+        }
+        &--top-right{
+            top: 20%;
+            right: 10%;
+            transform: unset;
+        }
+        &--bottom-left{
+            bottom: 20%;
+            left: 10%;
+            transform: unset;
+        }
+        &--bottom-right{
+            bottom: 20%;
+            right: 10%;
+            transform: unset;
+        }
+
+        &__paragraph{
+            font-family: u.$spectral;
+            width: fit-content;
+        }
+        &__heading{
+            width: fit-content;
+        }
+        &__button{
+            margin-top: 1rem;
+        }
+
+    }
+}

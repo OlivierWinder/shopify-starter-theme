@@ -31,7 +31,6 @@
   {%- endif -%}
 
   {% include 'social-meta-tags' %}
-  {% include 'style-tags', layout: 'theme' %}
   {% include 'css-variables' %}
 
   <script>
@@ -47,14 +46,21 @@
     };
   </script>
 
-  {% include 'script-tags', layout: 'theme' %}
-
   {{ content_for_header }}
+
+  <!-- icons -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- END icons -->
+  <!-- css -->
+  {{ 'app.css' | asset_url | stylesheet_tag }}
+  <!-- END css -->
+
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
 
-  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+  <!-- <a class="in-page-link visually-hidden skip-link" href="#MainContent" style="visibility: hidden;">{{ 'general.accessibility.skip_to_content' | t }}</a> -->
 
   {% section 'header' %}
 
@@ -64,5 +70,9 @@
 
   {% section 'footer' %}
 
+
+    <!-- js -->
+    {{ 'app.js' | asset_url | script_tag }}
+    <!-- END js -->
 </body>
 </html>

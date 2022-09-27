@@ -1,0 +1,128 @@
+<section 
+    class="info 
+    {% if section.settings.image-position == true %}
+    info--image-right
+    {% endif %}
+    {% if section.settings.gradient == true %}
+    info--add-gradient
+    {% endif %}"
+    >
+
+    <div class="image-container" >
+        <div class="image-container__gradient"
+        {% if section.settings.gradient == true %}
+        style="display: block;"        
+        {% endif %}>
+    </div>
+        <img src="{{ section.settings.image | img_url:'master' }}" alt="" class="image-container__img">
+    </div>
+
+    <div class="text-container
+    {% if section.settings.content-align-y == "center" %}
+    text-container--center-y
+    {% endif %}"
+    {% if section.settings.content-align-x == "center" %}
+    style="text-align: center; align-items: center;"
+    {% endif %}
+    {% if section.settings.content-align-x == "right" %}
+    style="text-align: right; align-items: flex-end"
+    {% endif %}
+    >
+        <h2 class="text-container__heading">{{section.settings.heading}}</h2>
+        <p class="text-container__paragraph">{{section.settings.paragraph}}</p>
+        <button class="text-container__button">{{section.settings.button}}</button>
+    </div>
+
+</section>
+
+{% schema %}
+{
+   "name": "info",
+
+  "settings": [
+    {
+        "type": "header",
+        "content": "CONTENT"
+    },
+    {
+        "type": "image_picker",
+        "label": "image",
+        "id": "image"
+    },
+    {
+        "type": "richtext",
+        "label": "heading",
+        "id": "heading"
+    },
+    {
+        "type": "textarea",
+        "label": "paragraph",
+        "id": "paragraph"
+    },
+    {
+        "type": "text",
+        "label": "button text",
+        "id": "button"
+    },
+    {
+        "type": "header",
+        "content": "LAYOUT SETTINGS"
+    },
+    {
+        "type": "checkbox",
+        "label": "position image right",
+        "id": "image-position",
+        "default": false
+    },
+    {
+        "type": "radio",
+        "label": "horizontal content alignment",
+        "id": "content-align-x",
+        "options": [
+            {
+            "value": "left",
+            "label": "left"
+            },
+            {
+            "value": "center",
+            "label": "center"
+            },
+            {
+            "value": "right",
+            "label": "right"
+            }
+        ],
+    "default": "left"
+    },
+    {
+        "type": "radio",
+        "label": "vertical content alignment",
+        "id": "content-align-y",
+        "options": [
+            {
+            "value": "top",
+            "label": "top"
+            },
+            {
+            "value": "center",
+            "label": "center"
+            }
+        ],
+            "default": "top"
+    },  
+    {
+        "type": "checkbox",
+        "default": false,
+        "label": "add gradient overlay",
+        "id": "gradient"
+    }
+  ],
+
+  "presets": [
+    {
+        "category": "layout",
+        "name":"info"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,124 @@
+<section class="hero">
+    <!-- <h1>{{section.settings.heading}}</h1>
+    <p>{{section.settings.parapgraph}}</p> -->
+    <div class="gradient-overlay"></div>
+
+    <img src="{{section.settings.image | img_url:'master' }}" class="hero__img" alt="hero image">
+    <div class="hero__text-container 
+    {% if section.settings.content-alignment == 'top-left' %}
+        hero__text-container--top-left
+    {% endif %}
+    {% if section.settings.content-alignment == 'top-right' %}
+        hero__text-container--top-right
+    {% endif %}
+    {% if section.settings.content-alignment == 'bottom-right' %}
+        hero__text-container--bottom-right
+    {% endif %}
+    {% if section.settings.content-alignment == 'bottom-left' %}
+        hero__text-container--bottom-left
+    {% endif %}
+    "
+    {% if section.settings.text-alignment == true %}
+        style="text-align: center; align-items: center;"
+    {% endif %}
+    >
+    
+        
+        <h1 class="hero__text-container__heading">{{section.settings.heading}}</h1>
+        <p class="hero__text-container__paragraph">{{section.settings.paragraph}}</p>
+        <a href="{{section.settings.button-link}}">
+            <button class="hero__text-container__button">
+                {{section.settings.button-text}}
+            </button>
+        </a>
+    </div>
+
+</section>
+
+{% schema %}
+{
+
+    "name": "hero",
+
+   "settings": [
+   {
+        "type": "header",
+        "content": "CONTENT"
+    },
+    {
+       "type": "richtext",
+       "label": "heading",
+       "id": "heading"
+    },
+    {
+       "type": "textarea",
+       "label": "parapgraph",
+       "id": "paragraph"
+    },
+    {
+       "type": "image_picker",
+       "label": "image",
+       "id": "image"
+    },
+    {
+       "type": "text",
+       "label": "button text",
+       "id": "button-text"
+    },
+    {
+        "type": "url",
+        "id": "button-link",
+        "label": "Button link"
+    },
+    {
+        "type": "header",
+        "content": "CONTENT SETTINGS"
+    },
+    {
+       "type": "radio",
+       "label": "content alignment",
+       "id": "content-alignment",
+       "type": "radio",
+       "options": [
+            {
+                "value": "middle",
+                "label": "middle"
+            },
+            {
+                "value": "top-left",
+                "label": "top left"
+            },
+            {
+                "value": "top-right",
+                "label": "top right"
+            },
+            {
+                "value": "bottom-right",
+                "label": "bottom right"
+            },
+            {
+                "value": "bottom-left",
+                "label": "bottom left"
+            }
+       ],
+       "default": "middle"
+    },
+    {
+       "type": "checkbox",
+       "label": "center text",
+       "id": "text-alignment",
+       "default": false
+    }
+   ],
+
+   "presets": [
+       {
+           "category": "images",
+           "name": "hero"
+       }
+   ]
+
+}
+
+
+{% endschema %}

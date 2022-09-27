@@ -1,0 +1,38 @@
+@use '../utils' as u;
+
+html:root{
+    font-size: 1rem;
+}
+
+body{
+    font-family: u.$montserrat;
+}
+
+
+h1 {
+    font-size: u.$fontsize-h1;
+}
+
+h2 {
+    font-size: u.$fontsize-h2;
+}
+
+h3 {
+    font-size: u.$fontsize-h3;
+}
+
+h4 {
+    font-size: u.$fontsize-h4;
+}
+
+h5 {
+    font-size: u.$fontsize-h5;
+}
+
+h6 {
+    font-size: u.$fontsize-h6;
+}
+
+.small {
+    font-size: u.$fontsize-small;
+}
